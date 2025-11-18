@@ -1,9 +1,0 @@
-pandas
-numpy
-matplotlib
-yfinance
-nltk
-vaderSentiment
-requests
-python-dateutil
-scikit-learn
