@@ -52,7 +52,8 @@ def align_and_analyze(ticker, news_path, prices_path, figs_dir):
     ret_t = ret[ret["ticker"]==ticker].copy()
 
     sent["date_t1"] = pd.to_datetime(sent["date"]) + pd.Timedelta(days=1)
-    sent_shift = sent.rename(columns={"date_t1":"date"})[["date","sent_roll3"]].copy()
+    sent_shift = sent[["date_t1", "sent_roll3"]].copy()
+    sent_shift = sent_shift.rename(columns={"date_t1": "date"})
     sent_shift["date"] = pd.to_datetime(sent_shift["date"])
     ret_t["date"] = pd.to_datetime(ret_t["date"])
     merged = pd.merge(ret_t, sent_shift, on="date", how="inner").dropna()
