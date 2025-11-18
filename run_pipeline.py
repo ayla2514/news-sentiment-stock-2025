@@ -97,4 +97,12 @@ def main():
     os.makedirs(os.path.dirname(args.out_csv), exist_ok=True)
     results = []
     if os.path.exists(args.tsla_news):
-        results.append(align_and_analyze("TSLA", args.tsla_news, args.prices, a_
+        results.append(align_and_analyze("TSLA", args.tsla_news, args.prices, args.figs_dir))
+    if os.path.exists(args.f_news):
+        results.append(align_and_analyze("F", args.f_news, args.prices, args.figs_dir))
+
+    pd.DataFrame(results).to_csv(args.out_csv, index=False)
+    print(f"[OK] saved key results -> {args.out_csv}")
+
+if __name__ == "__main__":
+    sys.exit(main())
