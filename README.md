@@ -55,11 +55,23 @@ python src/fetch_news_gdelt.py --query "Ford OR F"   --start 2025-01-01 --end 20
 └─ reports/
 ```
 
-## Key Results (fill with your numbers)
-- **Correlation**: TSLA {X}, F {Y}
-- **OLS β**: TSLA {β_TSLA}, F {β_F}
-- **Figures**: Add 2–3 plots (timeseries overlay + scatter).
+## Key Results (as of Nov 2025)
 
+| Ticker | Corr(Sentiment vs Next-Day Return) | β (OLS) | Intercept |
+|---------|-------------------------------------|----------|------------|
+| **TSLA** | -1.00 | -0.184 | 0.0117 |
+| **F** | -0.70 | -0.018 | 0.0057 |
+
+**Interpretation:**  
+- Tesla shows a *strong negative* correlation between daily sentiment and next-day stock returns.  
+- Ford shows a *moderate negative* relationship, implying sentiment had limited predictive power.  
+- Across both firms, sentiment seems to act as a **contrarian signal** rather than a leading indicator.
+
+### Figures
+![TSLA Sentiment vs Return](figures/tsla_timeseries.png)
+![TSLA Scatter](figures/tsla_scatter.png)
+![Ford Sentiment vs Return](figures/f_timeseries.png)
+![Ford Scatter](figures/f_scatter.png)
 ## Next Steps
 - Event study on earnings/recalls/policy days (±5 trading days)
 - Finance‑domain sentiment (FinBERT/FinVADER) comparison
@@ -71,4 +83,4 @@ python src/fetch_news_gdelt.py --query "Ford OR F"   --start 2025-01-01 --end 20
 - Sentiment — NLTK VADER
 
 ## License
-MIT © Ayla Lee
+MIT © Ayla Lee aylee2514@ucla.edu 
